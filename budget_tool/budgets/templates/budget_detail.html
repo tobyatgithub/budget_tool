@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="budget_list">
-    <p>Yep, here's budget list</p>
+<p><a href="{% url 'budget_add' %}">Add New Budget</a></p>
 {% for budget in budgets %}
 <div class="status_{{ budget }}">
     {% comment %} <h2>{{ budget }}</h2> {% endcomment %}
