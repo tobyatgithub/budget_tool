@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import BudgetForm, TransactionForm
 
+
 class BudgetListView(LoginRequiredMixin, ListView):
     """
     List all available budgets owned by current user.
@@ -70,4 +71,12 @@ class BudgetCreateView(LoginRequiredMixin, CreateView):
 
 
 class TransactionCreateView(LoginRequiredMixin, CreateView):
-    pass
+    template_name = '/src/budgets/templates/transaction_create.html'
+    model = Transaction
+    form_class = TransactionForm
+    success_url = reverse_lazy('budget_detail_view')
+    login_url = reverse_lazy('auth_login')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
