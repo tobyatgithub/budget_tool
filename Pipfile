@@ -4,12 +4,16 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+factory-boy = "*"
+psycopg2 = "*"
 
 [packages]
 django = "*"
 djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
+django-registration = "*"
+django-compressor = "*"
 
 [requires]
 python_version = "3.6"
