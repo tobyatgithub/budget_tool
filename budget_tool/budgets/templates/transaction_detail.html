@@ -1,0 +1,21 @@
+{% extends "generic/base.html" %}
+
+{% block content %}
+<div class="budget_list">
+    <p>Yep, here's budget list</p>
+{% for budget in budgets %}
+<div class="status_{{ budget }}">
+    {% comment %} <h2>{{ budget }}</h2> {% endcomment %}
+    <p>Budget Name: {{ budget.name }}</p>
+    <p>Total Budget: {{ budget.total_budget }}</p>
+    <p>Reamining Budget: {{ budget.remaining_budget }}</p>  
+    <br>
+    {% for transaction in transactions %}
+        <p>Transaction Type: {{ transaction.trans_type }}</p>
+        <p>Transaction Amount: {{ transaction.amount }}</p>
+        
+    {% endfor %}
+    <br>
+    <br>
+{% endfor %}
+{% endblock content %}
