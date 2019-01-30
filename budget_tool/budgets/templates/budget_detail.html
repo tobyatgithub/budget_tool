@@ -3,6 +3,7 @@
 {% block content %}
 <div class="budget_list">
 <p><a href="{% url 'budget_add' %}">Add New Budget</a></p>
+<p><a href="{% url 'transaction_add' %}">Add New Transaction</a></p>
 {% for budget in budgets %}
 <div class="status_{{ budget }}">
     {% comment %} <h2>{{ budget }}</h2> {% endcomment %}
@@ -13,6 +14,7 @@
     {% for transaction in transactions %}
         <p>Transaction Type: {{ transaction.trans_type }}</p>
         <p>Transaction Amount: {{ transaction.amount }}</p>
+        <p>Description: {{ transaction.description }}</p>
         
     {% endfor %}
     <br>
