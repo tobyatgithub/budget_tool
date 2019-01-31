@@ -34,6 +34,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', home_view, name='home'),
     path('', include('budgets.urls')),
+    path('api/v1/', include('budget_rest.urls'))
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
